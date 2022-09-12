@@ -1,9 +1,29 @@
-<script setup>
-</script>
-
 <template>
-  <div class="app" />
+  <div class="app">
+    <h1>IronContacts</h1>
+    <ContactsList :list="contacts" />
+  </div>
 </template>
+
+<script>
+import ContactsList from './components/ContactsListComponent.vue';
+
+import contacts from './contacts.json';
+
+console.log(contacts);
+
+export default {
+  name: 'App',
+  components: {
+    ContactsList,
+  },
+  data() {
+    return {
+      contacts,
+    };
+  },
+};
+</script>
 
 <style>
 #app {
