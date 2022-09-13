@@ -12,7 +12,7 @@
         Sort by name
       </button>
     </div>
-    <ContactsList :list="contacts" />
+    <ContactsList :list="contacts" @deleteItemFromList="deleteItemFromList" />
   </div>
 </template>
 
@@ -28,8 +28,6 @@ const contactsShuffled = contactsRaw.map((value) => ({ value, sort: Math.random(
 // Limit contacts to 5
 const currentIndex = 5;
 const contacts = contactsShuffled.slice(0, currentIndex);
-
-console.log(contactsShuffled);
 
 export default {
   name: 'App',
@@ -69,6 +67,10 @@ export default {
       this.contacts = this.contactsShuffled.slice(0, this.currentIndex);
       this.nameAscending = !this.nameAscending;
     },
+    deleteItemFromList(id) {
+      this.contactsShuffled = this.contactsShuffled.filter((contact) => contact.id !== id);
+      this.contacts = this.contactsShuffled.slice(0, this.currentIndex);
+    },
   },
 };
 </script>
@@ -86,6 +88,7 @@ export default {
     margin-bottom: 20px;
 }
 button {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    margin: 0.4rem;
 }
 </style>

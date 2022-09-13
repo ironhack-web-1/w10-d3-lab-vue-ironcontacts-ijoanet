@@ -10,8 +10,9 @@
       <th class="trophy">
         Won an Emmy
       </th>
+      <th> Actions</th>
     </tr>
-    <Contact v-for="item in list" :key="item.id" :contact="item" />
+    <Contact v-for="item in list" :key="item.id" :contact="item" @deleteItem="deleteItemFromList" />
   </table>
 </template>
 
@@ -27,6 +28,11 @@ export default {
     list: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    deleteItemFromList(id) {
+      this.$emit('deleteItemFromList', id);
     },
   },
 };

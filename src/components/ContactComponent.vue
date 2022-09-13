@@ -5,6 +5,11 @@
     <td>{{ contact.popularity.toFixed(2) }}</td>
     <td><span v-if="contact.wonOscar" class="trophy">🏆</span></td>
     <td><span v-if="contact.wonEmmy" class="trophy">🏆</span></td>
+    <td>
+      <button @click.once="deleteItem()">
+        Delete
+      </button>
+    </td>
   </tr>
 </template>
 
@@ -15,6 +20,11 @@ export default {
     contact: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    deleteItem() {
+      this.$emit('deleteItem', this.contact.id);
     },
   },
 };
