@@ -21,6 +21,9 @@ export default {
 </script>
 
 <style scoped>
+td {
+    height: 137px;
+}
 img {
     width: 5.5rem;
 }
