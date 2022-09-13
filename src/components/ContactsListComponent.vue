@@ -4,8 +4,12 @@
       <th>Picture</th>
       <th>Name</th>
       <th>Popularity</th>
-      <th>Won an Oscar</th>
-      <th>Won an Emmy</th>
+      <th class="trophy">
+        Won an Oscar
+      </th>
+      <th class="trophy">
+        Won an Emmy
+      </th>
     </tr>
     <Contact v-for="item in list" :key="item.id" :contact="item" />
   </table>
@@ -30,10 +34,12 @@ export default {
 
 <style scoped>
 table {
-    width: 50rem;
     margin: auto;
 }
 th {
     font-size: 1.5rem;
+}
+.trophy {
+    width: 10rem;
 }
 </style>
